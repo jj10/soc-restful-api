@@ -9,7 +9,7 @@ exports.findAll = function(request, response) {
     MongoClient.connect(MONGOHQ_URL, function(err, db) {
         var collection = db.collection('movies');
 
-        collection.find().toArray(function(err, movies) {
+        collection.find().toArray(function(error, movies) {
             response.json(movies);
         });
     });    
