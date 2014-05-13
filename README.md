@@ -18,16 +18,16 @@ That's pretty much it. You should be all ready to go!
 ## What is the deal with RESTful API?
 You can read so much on this on the internet, but the most important part for this tutorial is the acronym, CRUD.
 
-### Create
+##### Create
 Creates a new record.
 
-### Read
+##### Read
 Reads a record or a list of records.
 
-### Update
+##### Update
 Updates a record.
 
-### Delete
+##### Delete
 Deletes a record.
 
 Pretty simple...right? This is the kind of actions that power API services like [Twitter](https://dev.twitter.com/docs/api/1.1) and [Instagram](http://instagram.com/developer/api-console/). So we're going to ahead and make our own. You can go ahead and clone this repository to get started!
@@ -78,4 +78,17 @@ app.put('/movies/:id', movies.updateMovie);
 
 // The DELETE route
 app.delete('/movies/:id', movies.deleteMovie);
+```
+
+For these, the functions are defined in a different file for clarity sake. It would be really confusing to have everything in the same file, so we moved it to its own file. The variable `movies` is defined near the top in a similar fashion that express is defined.
+
+```javascript
+var movies = require('./routes/movies');
+````
+
+If you go to routes directory, you will see a file `movies.js` made for you. This is where all the functionality for accessing movies will live. First and foremost you need to access the username and password for the mongo database you will be accessing before this will work. The username is `our_company_name` and the password is `the_usual_password_qa_uses`. You can update it here:
+
+```javascript
+// Replace the <user> and <pass> with the correct credentials.
+var MONGOHQ_URL="mongodb://<user>:<pass>@oceanic.mongohq.com:10002/movies"
 ```
