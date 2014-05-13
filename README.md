@@ -60,5 +60,22 @@ To break this down a little bit, the first parameter of the `get()` function, yo
 
 The response variable handles sending back information to the client. The `.send()` function does exactly what you would expect it to do. Sends something back to the client.
 
-#### Mini Challenge
-Go ahead and try to create a new route so you can access the URL <localhost:3000/movies/count> and output a message to the screen.
+##### Mini Challenge
+Go ahead and try to create a new route so you can access the URL <localhost:3000/movies/count> and output a message to the screen. You will need to restart your server in order to see the changes you made. (Alternately you can install nodemon so you don't have to keep restarting your server to see changes you have made).
+
+You can see the other routes defined for you below the default route.
+
+```javascript
+// The READ routes
+app.get('/movies', movies.findAll);
+app.get('/movies/:id', movies.findById);
+
+// The CREATE route
+app.post('/movies', movies.addMovie);
+
+// The UPDATE route
+app.put('/movies/:id', movies.updateMovie);
+
+// The DELETE route
+app.delete('/movies/:id', movies.deleteMovie);
+```
