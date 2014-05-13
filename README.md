@@ -49,3 +49,7 @@ You can always checkout the answers branch in order to view that answers to the 
 ## Challenges
 1. Add your own custom route that will find movies from a given year or a range of years.
 2. Add your own route that will search for movies by name and return any matches.
+
+## Follow Up Tutorials and More Information
+[Code School](https://www.codeschool.com) has a free tutorial on Node.
+You can always checkout the many different documentation on RESTful API and node by doing searching the internet as well.
