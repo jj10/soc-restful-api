@@ -52,4 +52,5 @@ You can always checkout the answers branch in order to view that answers to the 
 
 ## Follow Up Tutorials and More Information
 [Code School](https://www.codeschool.com) has a free tutorial on Node.
-You can always checkout the many different documentation on RESTful API and node by doing searching the internet as well.
+
+You can always checkout the many different documentation on RESTful API and node by doing searching the internet as well. Feel free to pull this repository and make this tutorial even better by submitting a couple of pull requests!
