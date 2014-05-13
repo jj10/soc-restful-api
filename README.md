@@ -40,7 +40,15 @@ cd path/to/soc-restful-api
 npm install
 ```
 
-This will install all the dependencies mentioned in `package.json` which is [Express](http://expressjs.com) and [MongoDB](https://www.mongodb.org). You can then start up your server by simple typing in `node server.js` in the same directory. You can then access the server at <localhost:3000>. Go ahead! Give it a shot! You should see a perfectly responsive welcome message.
+This will install all the dependencies mentioned in `package.json` which is [Express](http://expressjs.com) and [MongoDB](https://www.mongodb.org). 
+
+You will also need to update the credentials to the mongo database before your server will work. Go to `routes/movies.js` and update the `MONGOHQ_URL` to the following:
+
+```javascript
+var MONGOHQ_URL="mongodb://<our_company_name>:<the_usual_password_qa_uses>@oceanic.mongohq.com:10002/movies"
+```
+
+You can then start up your server by simple typing in `node server.js` in the same directory. You can then access the server at <localhost:3000>. Go ahead! Give it a shot! You should see a perfectly responsive welcome message.
 
 ## Working with Node and Express
 `server.js` contains all of your routes and is where the entire application begins. You can see the that we require the Express library by including the lines `var express = require('express')`. When you installed the application using the `npm install` command earlier, you actually installed all the dependencies needed for this project. You can find the express files and the mongodb files in the folder `soc-restful-api/node_modules`.
@@ -86,9 +94,10 @@ For these, the functions are defined in a different file for clarity sake. It wo
 var movies = require('./routes/movies');
 ````
 
-If you go to routes directory, you will see a file `movies.js` made for you. This is where all the functionality for accessing movies will live. First and foremost you need to access the username and password for the mongo database you will be accessing before this will work. The username is `our_company_name` and the password is `the_usual_password_qa_uses`. You can update it here:
+If you go to routes directory, you will see a file `movies.js` made for you. This is where all the functionality for accessing movies will live.
 
-```javascript
-// Replace the <user> and <pass> with the correct credentials.
-var MONGOHQ_URL="mongodb://<user>:<pass>@oceanic.mongohq.com:10002/movies"
-```
+More information to be added soon...
+
+## Challenges for Future Discussion
+1. Write a route that gets the movies in a range of years.
+2. Write a route that finds a movie by its name.
