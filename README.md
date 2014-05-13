@@ -18,10 +18,26 @@ That's pretty much it. You should be all ready to go!
 ## What is the deal with RESTful API?
 You can read so much on this on the internet, but the most important part for this tutorial is the acronym, CRUD.
 
-Create
+### Create
+Creates a new record.
 
-Read
+### Read
+Reads a record or a list of records.
 
-Update
+### Update
+Updates a record.
 
-Delete
+### Delete
+Deletes a record.
+
+Pretty simple...right? This is the kind of actions that power API services like [Twitter](https://dev.twitter.com/docs/api/1.1) and [Instagram](http://instagram.com/developer/api-console/). So we're going to ahead and make our own. You can go ahead and clone this repository to get started!
+
+## Getting your environment setup
+After cloning this repository, you can run the following commands in your terminal:
+
+```
+cd path/to/soc-restful-api
+npm install
+```
+
+This will install all the dependencies mentioned in `package.json` which is [Express](http://expressjs.com) and [MongoDB](https://www.mongodb.org).
