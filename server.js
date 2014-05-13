@@ -3,14 +3,17 @@ var express = require('express');
 var app = express();
 
 var movies = require('./routes/movies');
+var count = require('./routes/count');
 
 app.use(express.bodyParser());
 
 // This area is what shows up first. You can define the function that you want to run right here, 
 // or you can define them in other files like it is done with the movies.
 app.get('/', function(request, response) {
-   response.send('<h1>Welcome to this site.</h1><p>This page does nothing but show this message.</p>'); 
+   response.send('<h1>Welcome to the Optaros site.</h1><p>This page does nothing but show this message.</p>'); 
 });
+
+app.get('/count', count.countMovies);
 
 // The READ routes
 app.get('/movies', movies.findAll);

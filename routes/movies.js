@@ -1,5 +1,5 @@
 // The database technology we will be using.
-var MONGOHQ_URL="mongodb://<user>:<pass>@oceanic.mongohq.com:10002/movies"
+var MONGOHQ_URL="mongodb://<user>:<pass>@oceanic.mongohq.com:10002/movies";
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 var BSON = mongodb.BSONPure;
@@ -8,8 +8,23 @@ var BSON = mongodb.BSONPure;
 exports.findAll = function(request, response) {
     MongoClient.connect(MONGOHQ_URL, function(err, db) {
         var collection = db.collection('movies');
-
-        collection.find().toArray(function(error, movies) {
+        var query = {};
+        
+        if (typeof(request.query.y1) != 'undefined') {
+            query = {'year':request.query.y1};
+            if (typeof(request.query.y2) != 'undefined') {
+                if (request.query.y2 > request.query.y1) {
+                    query = {'year': { $gte: request.query.y1, $lte: request.query.y2}};
+                } else {
+                    query = {'year': { $lte: request.query.y1, $gte: request.query.y2}};
+                }
+            }
+        } 
+        
+        if (typeof(request.query.q) != 'undefined') {
+            query = {'title': {$regex: request.query.q, $options: 'i' }};
+        }   
+        collection.find(query).toArray(function(error, movies) {
             response.json(movies);
         });
     });    
@@ -19,7 +34,7 @@ exports.findAll = function(request, response) {
 exports.findById = function (request, response) {
     MongoClient.connect(MONGOHQ_URL, function(err, db) {
         var collection = db.collection('movies');
-
+        
         collection.find({_id: new BSON.ObjectID(request.params.id)}).toArray(function(err, movie) {
             response.json(movie);
         });
