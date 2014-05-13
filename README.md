@@ -40,4 +40,25 @@ cd path/to/soc-restful-api
 npm install
 ```
 
-This will install all the dependencies mentioned in `package.json` which is [Express](http://expressjs.com) and [MongoDB](https://www.mongodb.org). You can then start up your server by simple typing in `node server.js` in the same directory.
+This will install all the dependencies mentioned in `package.json` which is [Express](http://expressjs.com) and [MongoDB](https://www.mongodb.org). You can then start up your server by simple typing in `node server.js` in the same directory. You can then access the server at <localhost:3000>. Go ahead! Give it a shot! You should see a perfectly responsive welcome message.
+
+## Working with Node and Express
+`server.js` contains all of your routes and is where the entire application begins. You can see the that we require the Express library by including the lines `var express = require('express')`. When you installed the application using the `npm install` command earlier, you actually installed all the dependencies needed for this project. You can find the express files and the mongodb files in the folder `soc-restful-api/node_modules`.
+
+You can also see that the app is listening on port 3000 with the line `app.listen(3000)`. This is why we go to the <localhost:3000> for the URL and access the application. Feel free to change the ports 
+
+## The Routes in regards to CRUD
+In `server.js`, you can see that we have the default route using: 
+
+```javascript
+app.get('/', function(request, response) { 
+   response.send('<h1>Welcome to this site.</h1><p>This page does nothing but show this message.</p>'); 
+});
+```
+
+To break this down a little bit, the first parameter of the `get()` function, you can see the actual route. The second parameter is the callback function which takes in a request variable and a response variable. The request will hold all the information regarding the request like get and post variables. If you're familiar with AJAX forms, then this is how you can retrieve the information from a form submission.
+
+The response variable handles sending back information to the client. The `.send()` function does exactly what you would expect it to do. Sends something back to the client.
+
+#### Mini Challenge
+Go ahead and try to create a new route so you can access the URL <localhost:3000/movies/count> and output a message to the screen.
