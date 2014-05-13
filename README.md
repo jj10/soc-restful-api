@@ -43,7 +43,7 @@ npm install
 This will install all the dependencies mentioned in `package.json` which is [Express](http://expressjs.com) and [MongoDB](https://www.mongodb.org).
 
 
-## Seeing the answers
+### Seeing the answers
 You can always checkout the answers branch in order to view that answers to the missing parts of this code.
 
 ## Challenges
