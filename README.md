@@ -41,3 +41,11 @@ npm install
 ```
 
 This will install all the dependencies mentioned in `package.json` which is [Express](http://expressjs.com) and [MongoDB](https://www.mongodb.org).
+
+
+## Seeing the answers
+You can always checkout the answers branch in order to view that answers to the missing parts of this code.
+
+## Challenges
+1. Add your own custom route that will find movies from a given year or a range of years.
+2. Add your own route that will search for movies by name and return any matches.
