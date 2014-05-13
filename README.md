@@ -1,5 +1,7 @@
 # Summer of Code: RESTful API with Node and Express
 
+You can view the [video on Vimeo here](http://vimeo.com/95171212)!
+
 Welcome to the first installment of the summer of code. This tutorial is the first in a series meant to introduce you to some key concepts that you may come across throughout your career as a front-end developer.
 
 * [Session I: RESTful API](http://github.com/hacktaros/soc-restful-api)
@@ -94,10 +96,15 @@ For these, the functions are defined in a different file for clarity sake. It wo
 var movies = require('./routes/movies');
 ````
 
-If you go to routes directory, you will see a file `movies.js` made for you. This is where all the functionality for accessing movies will live.
-
-More information to be added soon...
+If you go to routes directory, you will see a file `movies.js` made for you. This is where all the functionality for accessing movies will live. You can view the comments to get a better sense of what's happening on each line.
 
 ## Challenges for Future Discussion
 1. Write a route that gets the movies in a range of years.
-2. Write a route that finds a movie by its name.
+2. Write a route that finds a movie by its name. (This probably won't work right now due to limitations on getting a full text search at the moment. I would suggest making a local copy of the collection and trying to search that.)
+
+## More Information and Resources
+* [Node Documentation](http://nodejs.org/api/)
+* [Express Documentation](http://expressjs.com/4x/api.html)
+* [Mongo Documentation](http://docs.mongodb.org/manual/)
+* [Code School Tutorial for Node, Express, and Sockets](https://www.codeschool.com/courses/real-time-web-with-nodejs)
+* [Video Tutorial fo this Workshop](http://vimeo.com/95171212)
