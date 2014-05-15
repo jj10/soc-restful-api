@@ -1,6 +1,6 @@
 # Summer of Code: RESTful API with Node and Express
 
-You can view the [video on Vimeo here](http://vimeo.com/95171212)!
+You can view the [video on YouTube here](http://youtu.be/ZvmI3_pg97M)!
 
 Welcome to the first installment of the summer of code. This tutorial is the first in a series meant to introduce you to some key concepts that you may come across throughout your career as a front-end developer.
 
