@@ -1,5 +1,8 @@
 // The database technology we will be using.
-var MONGOHQ_URL="mongodb://<user>:<pass>@oceanic.mongohq.com:10002/movies"
+//var MONGOHQ_URL="mongodb://<user>:<pass>@oceanic.mongohq.com:10002/movies"
+//var MONGOHQ_URL="mongodb://<our_company_name>:<the_usual_password_qa_uses>@oceanic.mongohq.com:10002/movies"
+var MONGOHQ_URL="mongodb://optaros:o123123@oceanic.mongohq.com:10002/movies"
+
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 var BSON = mongodb.BSONPure;
@@ -79,4 +82,42 @@ exports.deleteMovie = function (request, response) {
             }
         });
     });
+};
+
+
+// jo test
+// Finds movies by date range
+exports.findByDateRange = function (request, response) {
+	var sDate = request.params.sDate;
+	var eDate = request.params.eDate;
+	console.log('sDate = '+sDate);
+	console.log('eDate = '+eDate);
+	
+    MongoClient.connect(MONGOHQ_URL, function(err, db) {
+        var collection = db.collection('movies');
+
+		collection.find({
+			year: {
+				"$gte": sDate, 
+				"$lte": eDate
+			}
+		}).toArray(function(error, movies) {
+            response.json(movies);
+        });
+    }); 
+};
+
+// Finds movies title
+exports.findByTitle = function (request, response) {
+	var title = request.params.title;
+	console.log('movie title = '+title);
+	
+    MongoClient.connect(MONGOHQ_URL, function(err, db) {
+        var collection = db.collection('movies');
+		var titleAnyMatch = new RegExp(title, "i");
+	   
+	    collection.find({title: titleAnyMatch}).toArray(function(error, movies) {
+            response.json(movies);
+        });
+    }); 
 };
